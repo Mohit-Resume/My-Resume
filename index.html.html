@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mohit | ERP Engineer & IT Support Specialist</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+  --bg: #030712;
+  --card: rgba(15, 23, 42, 0.78);
+  --line: rgba(56, 189, 248, 0.18);
+  --blue: #38bdf8;
+  --purple: #a855f7;
+  --text: #cbd5e1;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: white;
+  overflow-x: hidden;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.section, .card, .skill-box {
+  animation: float 8s ease-in-out infinite;
+}
+
+.section:nth-child(even) .card, .skill-box:nth-child(even) {
+  animation-delay: 1.5s;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* Background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(168,85,247,.15), transparent 25%),
+    radial-gradient(circle at 85% 20%, rgba(56,189,248,.12), transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(14,165,233,.08), transparent 30%),
+    #030712;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: .25;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.container {
+  width: min(1300px, calc(100% - 40px));
+  margin: auto;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(2, 6, 23, 0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--blue);
+  text-shadow: 0 0 15px var(--blue);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+nav ul a:hover { color: var(--blue); }
+
+.cv-btn {
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  padding: 10px 18px;
+  border-radius: 12px;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.hero h4 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(4rem, 10vw, 7rem);
+  line-height: 1;
+  background: linear-gradient(90deg, var(--purple), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+  font-size: 30px;
+  color: #e5e7eb;
+  margin: 15px 0;
+}
+
+.hero p {
+  color: var(--text);
+  line-height: 1.9;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.tags span {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(168,85,247,.45);
+  background: rgba(168,85,247,.08);
+  font-size: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, var(--purple), var(--blue));
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: 0 0 30px rgba(56,189,248,.35);
+}
+
+/* Hero Visual */
+.hero-visual {
+  position: relative;
+}
+
+.avatar-ring {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding: 16px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--purple), var(--blue));
+  box-shadow: 0 0 60px rgba(56,189,248,.35);
+  animation: float 6s ease-in-out infinite;
+}
+
+.avatar-ring img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  border: 8px solid #0f172a;
+}
+
+@keyframes float {
+  50% { transform: translateY(-12px); }
+}
+
+.floating-icon {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(15,23,42,.95);
+  border: 1px solid var(--line);
+  color: var(--blue);
+  font-size: 30px;
+  box-shadow: 0 0 25px rgba(56,189,248,.18);
+}
+
+.i1 { top: 5%; left: 0; }
+.i2 { top: 15%; right: 0; }
+.i3 { bottom: 20%; left: -10px; }
+.i4 { bottom: 5%; right: 10px; }
+.i5 { top: 45%; right: -20px; }
+
+/* Sections */
+.section { padding: 90px 0; }
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 40px;
+  color: var(--blue);
+  margin-bottom: 35px;
+  text-shadow: 0 0 15px rgba(56,189,248,.3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  transition: .35s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(56,189,248,.12);
+}
+
+.card h3 {
+  color: var(--blue);
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.card p, .card li {
+  color: var(--text);
+  line-height: 1.8;
+}
+
+.card ul { padding-left: 18px; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.skill-box {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.skill-box i {
+  display: block;
+  font-size: 34px;
+  margin-bottom: 10px;
+  color: var(--blue);
+}
+
+.contact-box {
+  text-align: center;
+}
+
+.contact-box p {
+  margin: 12px 0;
+  font-size: 18px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #94a3b8;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .tags { justify-content: center; }
+  nav ul { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">&lt; Mohit /&gt;</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="cv-btn">Download CV</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero container" id="home">
+  <div>
+    <h4>Hello, I'm</h4>
+    <h1>Mohit</h1>
+    <h2>ERP Engineer | IT Support Specialist</h2>
+
+    <div class="tags">
+      <span>ERP Expert</span>
+      <span>Zoho & Microsoft 365 Admin</span>
+      <span>Problem Solver</span>
+      <span>Web Developer</span>
+    </div>
+
+    <p>
+      I build smart ERP solutions, automate business workflows,
+      and provide end-to-end IT support to improve operational efficiency.
+    </p>
+
+    <a href="#contact" class="btn">HIRE ME</a>
+  </div>
+
+  <div class="hero-visual">
+    <div class="floating-icon i1"><i class="fa-brands fa-sap"></i></div>
+    <div class="floating-icon i2"><i class="fa-brands fa-microsoft"></i></div>
+    <div class="floating-icon i3"><i class="fa-solid fa-cloud"></i></div>
+    <div class="floating-icon i4"><i class="fa-brands fa-linux"></i></div>
+    <div class="floating-icon i5"><i class="fa-solid fa-code"></i></div>
+
+    <div class="main-card" style="text-align:center; padding:40px 30px; position:relative; overflow:hidden;">
+      <div style="position:absolute; inset:-20%; background:conic-gradient(from 0deg, transparent, rgba(56,189,248,.18), transparent, rgba(168,85,247,.18), transparent); animation:spin 12s linear infinite;"></div>
+      <div style="position:relative; z-index:2;">
+      <div style="width:320px;height:320px;margin:0 auto 20px;border-radius:50%;padding:8px;background:linear-gradient(45deg,#a855f7,#38bdf8);box-shadow:0 0 50px rgba(56,189,248,.45);animation:float 6s ease-in-out infinite;position:relative;">
+        <img src="mohit-avatar.png" alt="Mohit AI Avatar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;border:6px solid #0f172a;display:block;">
+      </div>
+
+      <h3 style="font-family:'Orbitron',sans-serif; font-size:28px; color:#38bdf8; margin-bottom:20px;">
+        DIGITAL SOLUTIONS ARCHITECT
+      </h3>
+
+      <div style="text-align:left; background:rgba(2,6,23,.7); border:1px solid rgba(56,189,248,.18); border-radius:18px; padding:20px; font-family:monospace; color:#22c55e; line-height:1.8;">
+&gt; ERP Systems Optimization<br>
+&gt; Zoho & Microsoft 365 Administration<br>
+&gt; Networking & Security<br>
+&gt; Web Application Development<br>
+&gt; Process Automation
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="card">
+      <p>
+        ERP Engineer and IT Support Specialist with hands-on experience in ERP systems,
+        Payroll, Zoho Workplace, Microsoft 365, Networking, Procurement, and Custom Web Applications.
+      </p>
+      <p><strong>📞</strong> 8126529888</p>
+      <p><strong>📧</strong> 57276_mohit@gbpuat-tech.ac.in</p>
+      <p><strong>📍</strong> Rudrapur, Udham Singh Nagar, Uttarakhand</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="container">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="card">
+      <div class="skills-grid">
+        <div class="skill-box"><i class="fa-brands fa-windows"></i>Windows Server</div>
+        <div class="skill-box"><i class="fa-solid fa-network-wired"></i>Networking</div>
+        <div class="skill-box"><i class="fa-brands fa-microsoft"></i>Microsoft 365</div>
+        <div class="skill-box"><i class="fa-solid fa-envelope"></i>Zoho Mail</div>
+        <div class="skill-box"><i class="fa-solid fa-file-excel"></i>Advanced Excel</div>
+        <div class="skill-box"><i class="fa-solid fa-calculator"></i>Tally Prime</div>
+        <div class="skill-box"><i class="fa-solid fa-server"></i>VMware</div>
+        <div class="skill-box"><i class="fa-solid fa-shield-halved"></i>Firewall</div>
+        <div class="skill-box"><i class="fa-brands fa-linux"></i>Linux</div>
+        <div class="skill-box"><i class="fa-solid fa-database"></i>SQL Server</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>10th Standard</h3>
+        <p><strong>Percentage:</strong> 94%</p>
+        <p>Strong academic foundation with excellent performance in mathematics and science.</p>
+      </div>
+
+      <div class="card">
+        <h3>12th Standard</h3>
+        <p><strong>Percentage:</strong> 93%</p>
+        <p>Focused on Physics, Chemistry, and Mathematics with outstanding results.</p>
+      </div>
+
+      <div class="card">
+        <h3>B.Tech in Computer Science Engineering</h3>
+        <p><strong>CGPA:</strong> 7.3</p>
+        <p>Developed expertise in programming, databases, networking, and software development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>ERP Engineer / IT Support</h3>
+        <p><strong>NTNL Construction Pvt. Ltd.</strong></p>
+        <ul>
+          <li>Managed ERP operations and user support.</li>
+          <li>Provided hardware/software troubleshooting.</li>
+          <li>Handled networking and system maintenance.</li>
+          <li>Developed Labour Attendance App.</li>
+          <li>Built centralized departmental web system.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Cloud Administration</h3>
+        <ul>
+          <li>Administered Zoho Workplace & Microsoft 365.</li>
+          <li>Managed licenses and user permissions.</li>
+          <li>Supported SharePoint, WorkDrive and Outlook.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Functional Expertise</h3>
+        <ul>
+          <li>HR systems support and digitization.</li>
+          <li>Procurement and L&T SuFin integration.</li>
+          <li>RFQ and quotation management.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
+      <div class="card"><h3>Labour Attendance App</h3><p>Real-time attendance tracking and process automation.</p></div>
+      <div class="card"><h3>Departmental Web System</h3><p>Role-based access platform for all departments.</p></div>
+      <div class="card"><h3>Alumni Management System</h3><p>Centralized alumni registration and communication platform.</p></div>
+      <div class="card"><h3>E-Commerce Operations</h3><p>Managed Amazon, Shopify and Meesho listings.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section-title">Let's Build Something Amazing Together</h2>
+    <div class="card contact-box">
+      <p>📞 8126529888</p>
+      <p>📧 57276_mohit@gbpuat-tech.ac.in</p>
+      <p>📍 Rudrapur, Udham Singh Nagar, Uttarakhand</p>
+      <br>
+      <a href="mailto:57276_mohit@gbpuat-tech.ac.in" class="btn">HIRE ME</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Mohit. All Rights Reserved.
+</footer>
+
+</body>
+</html>
